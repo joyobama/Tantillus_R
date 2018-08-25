@@ -64,10 +64,10 @@
 #define BLUETOOTH_BAUD  115200
 #define MIXING_EXTRUDER 0
 
-#define DRIVE_SYSTEM 0
-#define XAXIS_STEPS_PER_MM 121.5
-#define YAXIS_STEPS_PER_MM 121.5
-#define ZAXIS_STEPS_PER_MM 320
+#define DRIVE_SYSTEM 0                //关闭系统性驱动
+#define XAXIS_STEPS_PER_MM 121.5      //X轴每MM 步数    原数据：121.5
+#define YAXIS_STEPS_PER_MM 121.5      //Y轴每MM 步数    原数据：121.5
+#define ZAXIS_STEPS_PER_MM 320        //Z轴每MM 步数    原数据：320
 #define EXTRUDER_FAN_COOL_TEMP 50
 #define PDM_FOR_EXTRUDER 1
 #define PDM_FOR_COOLER 1
@@ -249,27 +249,27 @@ It also can add a delay to wait for spindle to run on full speed.
 // ################ Endstop configuration #####################
 
 #define MULTI_ZENDSTOP_HOMING 0
-#define ENDSTOP_PULLUP_X_MIN true
-#define ENDSTOP_X_MIN_INVERTING true
-#define MIN_HARDWARE_ENDSTOP_X true
-#define ENDSTOP_PULLUP_Y_MIN true
-#define ENDSTOP_Y_MIN_INVERTING true
-#define MIN_HARDWARE_ENDSTOP_Y true
-#define ENDSTOP_PULLUP_Z_MIN true
-#define ENDSTOP_Z_MIN_INVERTING true
-#define MIN_HARDWARE_ENDSTOP_Z true
+#define ENDSTOP_PULLUP_X_MIN true       //X轴最小 限位开关IO进行上拉
+#define ENDSTOP_X_MIN_INVERTING true    //X轴最小 限位开关IO信号取反
+#define MIN_HARDWARE_ENDSTOP_X true     //X轴最小 使能位置限位开关
+#define ENDSTOP_PULLUP_Y_MIN true       //Y轴最小 限位开关IO进行上拉
+#define ENDSTOP_Y_MIN_INVERTING true    //Y轴最小 限位开关IO信号取反
+#define MIN_HARDWARE_ENDSTOP_Y true     //Y轴最小 使能位置限位开关
+#define ENDSTOP_PULLUP_Z_MIN true       //Z轴最小 限位开关IO进行上拉
+#define ENDSTOP_Z_MIN_INVERTING true    //Z轴最小 限位开关IO信号取反
+#define MIN_HARDWARE_ENDSTOP_Z true     //Z轴最小 使能位置限位开关
 #define ENDSTOP_PULLUP_Z2_MINMAX true
 #define ENDSTOP_Z2_MINMAX_INVERTING false
 #define MINMAX_HARDWARE_ENDSTOP_Z2 false
 #define ENDSTOP_PULLUP_X_MAX true
-#define ENDSTOP_X_MAX_INVERTING false
-#define MAX_HARDWARE_ENDSTOP_X false
+#define ENDSTOP_X_MAX_INVERTING true
+#define MAX_HARDWARE_ENDSTOP_X true
 #define ENDSTOP_PULLUP_Y_MAX true
-#define ENDSTOP_Y_MAX_INVERTING false
-#define MAX_HARDWARE_ENDSTOP_Y false
+#define ENDSTOP_Y_MAX_INVERTING true
+#define MAX_HARDWARE_ENDSTOP_Y true
 #define ENDSTOP_PULLUP_Z_MAX true
-#define ENDSTOP_Z_MAX_INVERTING false
-#define MAX_HARDWARE_ENDSTOP_Z false
+#define ENDSTOP_Z_MAX_INVERTING true
+#define MAX_HARDWARE_ENDSTOP_Z true//打开轴最大限位开关位置
 #define ENDSTOP_PULLUP_X2_MIN true
 #define ENDSTOP_PULLUP_Y2_MIN true
 #define ENDSTOP_PULLUP_Z2_MINMAX true
@@ -309,9 +309,9 @@ It also can add a delay to wait for spindle to run on full speed.
 #define ENDSTOP_X_RETEST_REDUCTION_FACTOR 3
 #define ENDSTOP_Y_RETEST_REDUCTION_FACTOR 3
 #define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 3
-#define ENDSTOP_X_BACK_ON_HOME 1
+#define ENDSTOP_X_BACK_ON_HOME 1    //复位回弹
 #define ENDSTOP_Y_BACK_ON_HOME 1
-#define ENDSTOP_Z_BACK_ON_HOME 0
+#define ENDSTOP_Z_BACK_ON_HOME 1    //看起来像是限位回弹
 #define ALWAYS_CHECK_ENDSTOPS 0
 #define MOVE_X_WHEN_HOMED 0
 #define MOVE_Y_WHEN_HOMED 0
@@ -326,17 +326,17 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DISABLE_Y 0
 #define DISABLE_Z 0
 #define DISABLE_E 0
-#define INVERT_X_DIR 0
+#define INVERT_X_DIR 1   //X轴运动方向
 #define INVERT_X2_DIR 0
-#define INVERT_Y_DIR 0
+#define INVERT_Y_DIR 0   //Y轴运动方向
 #define INVERT_Y2_DIR 0
-#define INVERT_Z_DIR 1
+#define INVERT_Z_DIR 1   //Z轴运动方向
 #define INVERT_Z2_DIR 0
 #define INVERT_Z3_DIR 0
 #define INVERT_Z4_DIR 0
-#define X_HOME_DIR -1
-#define Y_HOME_DIR -1
-#define Z_HOME_DIR -1
+#define X_HOME_DIR 1   //更改复位方向 1最大复位方向  -1最小复位方向
+#define Y_HOME_DIR 1
+#define Z_HOME_DIR 1
 #define X_MAX_LENGTH 105
 #define Y_MAX_LENGTH 105
 #define Z_MAX_LENGTH 105
@@ -445,7 +445,7 @@ It also can add a delay to wait for spindle to run on full speed.
 
 // ################# Misc. settings ##################
 
-#define BAUDRATE 250000
+#define BAUDRATE 115200
 #define ENABLE_POWER_ON_STARTUP 1
 #define POWER_INVERTING 0
 #define AUTOMATIC_POWERUP 0
@@ -549,7 +549,7 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define FEATURE_CONTROLLER 2
 #define ADC_KEYPAD_PIN -1
 #define LANGUAGE_EN_ACTIVE 1
-#define LANGUAGE_DE_ACTIVE 1
+#define LANGUAGE_DE_ACTIVE 0
 #define LANGUAGE_NL_ACTIVE 0
 #define LANGUAGE_PT_ACTIVE 0
 #define LANGUAGE_IT_ACTIVE 0
